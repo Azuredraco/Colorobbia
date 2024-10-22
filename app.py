@@ -25,8 +25,9 @@ def create_app():
             cuestionario_objects = [
                 Cuestionario(
                     id=c["id"],
-                    tipo=c["type"],
                     manager_id=c["manager_id"],
+                    tipo=c["id"]
+                    == c["manager_id"],  # True for "mando", False for "equipo"
                     frase_semilla=c["seed_phrase"],
                 )
                 for c in cuestionarios

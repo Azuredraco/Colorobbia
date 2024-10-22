@@ -14,16 +14,16 @@
     <table>
         <tr>
             <th>ID</th>
-            <th>Tipo</th>
             <th>ID Mando</th>
+            <th>Tipo</th>
             <th>Frase Semilla</th>
             <th>Usado</th>
         </tr>
         {% for cuestionario in cuestionarios %}
             <tr>
                 <td>{{ cuestionario.id }}</td>
-                <td>{{ cuestionario.tipo }}</td>
                 <td>{{ cuestionario.manager_id }}</td>
+                <td>{{ cuestionario.tipo }}</td>
                 <td>{{ cuestionario.frase_semilla }}</td>
                 <td>{{ cuestionario.usado }}</td>
             </tr>
