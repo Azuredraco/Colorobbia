@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario ya respondido</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Cuestionario ya respondido</h1>
+    <p>Este cuestionario ya ha sido respondido anteriormente. Agradecemos su interés y participación.</p>
+    <a href="{{ url_for('main.index') }}" class="button return">Volver a la página principal</a>
+</div>
+</body>
+</html>

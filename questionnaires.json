@@ -1,0 +1,38 @@
+[
+  {
+    "id": "XWA39RXT",
+    "type": "mando",
+    "manager_id": "XWA39RXT",
+    "seed_phrase": "frita engobe pigmento pigmento decoración"
+  },
+  {
+    "id": "VNY5R37W",
+    "type": "mando",
+    "manager_id": "VNY5R37W",
+    "seed_phrase": "colorante vidrio colorante gres decoración"
+  },
+  {
+    "id": "HO4BZII2",
+    "type": "equipo",
+    "manager_id": "NQFJZJGT",
+    "seed_phrase": "cerámica monoporosa tinta opacidad frita"
+  },
+  {
+    "id": "KS04DSDT",
+    "type": "equipo",
+    "manager_id": "NQFJZJGT",
+    "seed_phrase": "azulejo esmalte gres frita vidrio"
+  },
+  {
+    "id": "G23R4B9Q",
+    "type": "equipo",
+    "manager_id": "K01PO8I9",
+    "seed_phrase": "tinta gres azulejo porcelana horno"
+  },
+  {
+    "id": "MEK7IBSK",
+    "type": "equipo",
+    "manager_id": "K01PO8I9",
+    "seed_phrase": "gres granilla engobe decoración granilla"
+  }
+]

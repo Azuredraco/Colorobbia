@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Evaluación Colorobbia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="welcome-container">
+    <h1 class="welcome-title">Bienvenido al Cuestionario de Evaluación de Colorobbia</h1>
+    <form method="POST">
+        {% for i in range(1, 6) %}
+            <select name="palabra{{ i }}" class="word-select" required>
+                <option value="">Seleccione la palabra {{ i }}</option>
+                {% for palabra in palabras %}
+                    <option value="{{ palabra }}">{{ palabra }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+        <button type="submit" class="start-btn">Comenzar</button>
+    </form>
+    <a href="{{ url_for('main.database_content') }}" class="database-link">Ver contenido de la base de datos</a>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+</body>
+</html>
