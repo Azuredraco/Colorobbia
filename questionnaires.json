@@ -1,38 +1,32 @@
 [
   {
-    "id": "XWA39RXT",
-    "type": "mando",
-    "manager_id": "XWA39RXT",
-    "seed_phrase": "frita engobe pigmento pigmento decoración"
+    "id": "7BLTFN8FAB",
+    "manager_id": "7BLTFN8FAB",
+    "seed_phrase": "bicocción brillo brillo brillo frita"
   },
   {
-    "id": "VNY5R37W",
-    "type": "mando",
-    "manager_id": "VNY5R37W",
-    "seed_phrase": "colorante vidrio colorante gres decoración"
+    "id": "F52NHKC4GY",
+    "manager_id": "F52NHKC4GY",
+    "seed_phrase": "cerámica vidrio cerámica vidrio granilla"
   },
   {
-    "id": "HO4BZII2",
-    "type": "equipo",
-    "manager_id": "NQFJZJGT",
-    "seed_phrase": "cerámica monoporosa tinta opacidad frita"
+    "id": "TJHY6SHZIP",
+    "manager_id": "7BLTFN8FAB",
+    "seed_phrase": "colorante opacidad tinta horno azulejo"
   },
   {
-    "id": "KS04DSDT",
-    "type": "equipo",
-    "manager_id": "NQFJZJGT",
-    "seed_phrase": "azulejo esmalte gres frita vidrio"
+    "id": "BG2W5R0XQF",
+    "manager_id": "7BLTFN8FAB",
+    "seed_phrase": "azulejo azulejo micronizado monoporosa bicocción"
   },
   {
-    "id": "G23R4B9Q",
-    "type": "equipo",
-    "manager_id": "K01PO8I9",
-    "seed_phrase": "tinta gres azulejo porcelana horno"
+    "id": "NPPPWEPXHI",
+    "manager_id": "F52NHKC4GY",
+    "seed_phrase": "gres cerámica granilla esmalte porcelana"
   },
   {
-    "id": "MEK7IBSK",
-    "type": "equipo",
-    "manager_id": "K01PO8I9",
-    "seed_phrase": "gres granilla engobe decoración granilla"
+    "id": "KT0TPTOLP8",
+    "manager_id": "F52NHKC4GY",
+    "seed_phrase": "monoporosa cerámica gres vidrio brillo"
   }
 ]

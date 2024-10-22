@@ -1,6 +1,6 @@
 import random
 
-# Hard-coded data after processing the CSV content
+# Hard-coded data representing questions for the questionnaire
 PREGUNTAS = {
     1: (
         "¿Se comunica de manera clara y efectiva?",
@@ -104,18 +104,18 @@ PREGUNTAS = {
     ),
 }
 
-# Create a mapping of tematica to question IDs
+# Create a mapping of thematic areas to question IDs
 TEMATICA = {
     "Comunicación Efectiva": [1, 2, 4],
-    "Feedback y reconocimiento": [3, 8, 17],
+    "Feedback y Reconocimiento": [3, 8, 17],
     "Inteligencia Emocional": [5, 18, 23],
     "Participación y Trabajo en Equipo": [6, 7, 9],
     "Liderazgo Efectivo": [10, 13, 14, 15, 22, 24],
-    "Confianza y aprendizaje": [11, 12, 16, 21],
+    "Confianza y Aprendizaje": [11, 12, 16, 21],
     "Gestión de Conflictos": [19, 20, 25],
 }
 
-# Define the palabras list
+# List of words related to the questionnaire context
 PALABRAS = [
     "azulejo",
     "barniz",
@@ -141,9 +141,17 @@ PALABRAS = [
 
 
 def generate_seed_phrase():
+    """Generate a seed phrase by randomly selecting words from the PALABRAS list."""
     return " ".join(random.choices(PALABRAS, k=5))
 
 
 def obtener_preguntas(tipo):
-    # tipo should be a boolean: True for "mando", False for "equipo"
+    """Retrieve questions based on the type of questionnaire.
+
+    Args:
+        tipo (bool): True for "mando" (manager), False for "equipo" (team).
+
+    Returns:
+        list: A list of questions corresponding to the specified type.
+    """
     return [pregunta[1] if tipo else pregunta[0] for pregunta in PREGUNTAS.values()]

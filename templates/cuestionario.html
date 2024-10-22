@@ -1,72 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuestionario de Evaluación</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8"> <!-- Set character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for mobile devices -->
+    <title>Cuestionario de Evaluación</title> <!-- Title of the page -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to the external CSS stylesheet -->
 </head>
 <body>
-<div class="container">
-    <h1>Cuestionario de Evaluación</h1>
-    <form method="POST" onsubmit="return validarFormulario()">
-        {% for pregunta in preguntas %}
-            <div class="pregunta">
-                <h2>{{ pregunta }}</h2>
-                <div class="opciones">
-                    <button type="button" class="button nunca" onclick="seleccionar(this, {{ loop.index }}, 1)">1 -
-                        Nunca
-                    </button>
-                    <button type="button" class="button aveces" onclick="seleccionar(this, {{ loop.index }}, 2)">2 - A
-                        veces
-                    </button>
-                    <button type="button" class="button habitualmente" onclick="seleccionar(this, {{ loop.index }}, 3)">
-                        3 - Habitualmente
-                    </button>
-                    <button type="button" class="button siempre" onclick="seleccionar(this, {{ loop.index }}, 4)">4 -
-                        Siempre
-                    </button>
-                    <input type="hidden" name="pregunta_{{ loop.index }}" id="pregunta_{{ loop.index }}" value="">
+<div class="container"> <!-- Main container for content -->
+    <h1>Cuestionario de Evaluación</h1> <!-- Main heading -->
+    <form method="POST" onsubmit="return validarFormulario()"> <!-- Form submission with validation -->
+        {% for pregunta in preguntas %} <!-- Loop through each question -->
+            <div class="pregunta"> <!-- Container for each question -->
+                <h2>{{ pregunta }}</h2> <!-- Display the question -->
+                <div class="opciones"> <!-- Container for response options -->
+                    <button type="button" class="button nunca" onclick="seleccionar(this, {{ loop.index }}, 1)">1 - Nunca</button>
+                    <button type="button" class="button aveces" onclick="seleccionar(this, {{ loop.index }}, 2)">2 - A veces</button>
+                    <button type="button" class="button habitualmente" onclick="seleccionar(this, {{ loop.index }}, 3)">3 - Habitualmente</button>
+                    <button type="button" class="button siempre" onclick="seleccionar(this, {{ loop.index }}, 4)">4 - Siempre</button>
+                    <input type="hidden" name="pregunta_{{ loop.index }}" id="pregunta_{{ loop.index }}" value=""> <!-- Hidden input to store selected response -->
                 </div>
             </div>
         {% endfor %}
-        <input type="submit" value="Enviar respuestas" class="submit-btn">
+        <input type="submit" value="Enviar respuestas" class="submit-btn"> <!-- Submit button for the form -->
     </form>
 </div>
 
 <script>
     function seleccionar(boton, preguntaId, valor) {
-        // Deseleccionar todos los botones de la pregunta
+        // Deselect all buttons for the current question
         var botones = boton.parentElement.getElementsByClassName('button');
         for (var i = 0; i < botones.length; i++) {
-            botones[i].classList.remove('selected');
+            botones[i].classList.remove('selected'); // Remove selected class from all buttons
         }
 
-        // Seleccionar el botón clickeado
-        boton.classList.add('selected');
+        // Select the clicked button
+        boton.classList.add('selected'); // Add selected class to the clicked button
 
-        // Actualizar el valor del input hidden
-        document.getElementById('pregunta_' + preguntaId).value = valor;
+        // Update the value of the hidden input
+        document.getElementById('pregunta_' + preguntaId).value = valor; // Set the value of the hidden input to the selected response
     }
 
     function validarFormulario() {
-        // Verificar que todas las preguntas tengan respuestas
-        var todasRespondidas = true;
-        var totalPreguntas = {{ preguntas|length }};
+        // Check that all questions have been answered
+        var todasRespondidas = true; // Flag to track if all questions are answered
+        var totalPreguntas = {{ preguntas|length }}; // Get the total number of questions
 
         for (var i = 1; i <= totalPreguntas; i++) {
-            var respuesta = document.getElementById('pregunta_' + i).value;
+            var respuesta = document.getElementById('pregunta_' + i).value; // Get the response for each question
             if (respuesta === "") {
-                todasRespondidas = false;
-                break;
+                todasRespondidas = false; // Set flag to false if any question is unanswered
+                break; // Exit loop if an unanswered question is found
             }
         }
 
         if (!todasRespondidas) {
-            alert("Por favor, responda todas las preguntas antes de enviar el cuestionario.");
-            return false; // Evitar el envío del formulario
+            alert("Por favor, responda todas las preguntas antes de enviar el cuestionario."); // Alert user to answer all questions
+            return false; // Prevent form submission
         }
-        return true; // Permitir el envío del formulario
+        return true; // Allow form submission
     }
 </script>
 </body>

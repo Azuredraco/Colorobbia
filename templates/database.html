@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contenido de la Base de Datos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8"> <!-- Set character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for mobile devices -->
+    <title>Contenido de la Base de Datos</title> <!-- Title of the page -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to the external CSS stylesheet -->
 </head>
 <body>
-<div class="container">
-    <h1>Contenido de la Base de Datos</h1>
+<div class="container"> <!-- Main container for content -->
+    <h1>Contenido de la Base de Datos</h1> <!-- Main heading -->
 
-    <h2>Cuestionarios</h2>
-    <table>
+    <h2>Cuestionarios</h2> <!-- Subheading for questionnaires -->
+    <table> <!-- Table for displaying questionnaires -->
         <tr>
-            <th>ID</th>
-            <th>ID Mando</th>
-            <th>Tipo</th>
-            <th>Frase Semilla</th>
-            <th>Usado</th>
+            <th>ID</th> <!-- Column header for ID -->
+            <th>ID Mando</th> <!-- Column header for Manager ID -->
+            <th>Tipo</th> <!-- Column header for Type -->
+            <th>Frase Semilla</th> <!-- Column header for Seed Phrase -->
+            <th>Usado</th> <!-- Column header for Used status -->
         </tr>
-        {% for cuestionario in cuestionarios %}
+        {% for cuestionario in cuestionarios %} <!-- Loop through each questionnaire -->
             <tr>
-                <td>{{ cuestionario.id }}</td>
-                <td>{{ cuestionario.manager_id }}</td>
-                <td>{{ cuestionario.tipo }}</td>
-                <td>{{ cuestionario.frase_semilla }}</td>
-                <td>{{ cuestionario.usado }}</td>
+                <td>{{ cuestionario.id }}</td> <!-- Display questionnaire ID -->
+                <td>{{ cuestionario.manager_id }}</td> <!-- Display Manager ID -->
+                <td>{{ cuestionario.tipo }}</td> <!-- Display Type -->
+                <td>{{ cuestionario.frase_semilla }}</td> <!-- Display Seed Phrase -->
+                <td>{{ cuestionario.usado }}</td> <!-- Display Used status -->
             </tr>
         {% endfor %}
     </table>
 
-    <h2>Respuestas</h2>
-    <table>
+    <h2>Respuestas</h2> <!-- Subheading for responses -->
+    <table> <!-- Table for displaying responses -->
         <tr>
-            <th>ID</th>
-            <th>ID Cuestionario</th>
-            <th>ID Pregunta</th>
-            <th>Respuesta</th>
-            <th>Timestamp</th>
+            <th>ID</th> <!-- Column header for Response ID -->
+            <th>ID Cuestionario</th> <!-- Column header for Questionnaire ID -->
+            <th>ID Pregunta</th> <!-- Column header for Question ID -->
+            <th>Respuesta</th> <!-- Column header for Response -->
+            <th>Timestamp</th> <!-- Column header for Timestamp -->
         </tr>
-        {% for respuesta in respuestas %}
+        {% for respuesta in respuestas %} <!-- Loop through each response -->
             <tr>
-                <td>{{ respuesta.id }}</td>
-                <td>{{ respuesta.cuestionario_id }}</td>
-                <td>{{ respuesta.id_pregunta }}</td>
-                <td>{{ respuesta.respuesta }}</td>
-                <td>{{ respuesta.timestamp }}</td>
+                <td>{{ respuesta.id }}</td> <!-- Display Response ID -->
+                <td>{{ respuesta.cuestionario_id }}</td> <!-- Display Questionnaire ID -->
+                <td>{{ respuesta.id_pregunta }}</td> <!-- Display Question ID -->
+                <td>{{ respuesta.respuesta }}</td> <!-- Display Response -->
+                <td>{{ respuesta.timestamp }}</td> <!-- Display Timestamp -->
             </tr>
         {% endfor %}
     </table>
 
-    <a href="{{ url_for('main.index') }}" class="button return">Volver a la página principal</a>
+    <a href="{{ url_for('main.index') }}" class="button return">Volver a la página principal</a> <!-- Link to return to the main page -->
 </div>
 </body>
 </html>
